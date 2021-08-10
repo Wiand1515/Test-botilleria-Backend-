@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
+
 //Settings
-app.set('port', process.env.PORT || 8080);
+const PORT = process.env.PORT || 3000;
+
 
 //Middlewares
 app.use(express.json());
@@ -17,6 +19,6 @@ app.use("/api/productos", require('./routes/productos'));
 app.use("/api/categorias", require('./routes/categorias'));
 app.use("/api/search", require('./routes/search'))
 
-app.listen(8080, () => {
-    console.log('Server on port:', app.get('port'));
-})
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
