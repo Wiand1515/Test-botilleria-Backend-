@@ -54,7 +54,7 @@ document.addEventListener('click', (e) => {
     
     //Agrega al carrito
     if(e.target.matches('.boton-agregar')) {
-        alert('Boton agregar')
+        alert('Agregado al carrito')
     };
     
     //Filtra por categoria
