@@ -20,7 +20,10 @@ const getProductos = async(req = request, res = response) => {
         });
         
     } catch (err) {
-        
+        console.log(err);
+        res.json({
+            msg: 'Algo ha salido mal'
+        })
     }
 };
 

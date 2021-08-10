@@ -59,11 +59,11 @@ const searchProductosQuery = async(req = request, res = respose) => {
     }
 };
 
-//Buscar categorias por parametro
+//Buscar productos por categoria
 const searchCategory = async (req = request, res = response ) => {
     try {
         const { id } = req.params;
-        const filteredProducts = await Categoria.findAll({
+        const productosPorCategoria = await Categoria.findAll({
           include: [
             {
               model: Producto,
@@ -76,24 +76,14 @@ const searchCategory = async (req = request, res = response ) => {
             },
         }
         });
-        res.json({data: filteredProducts});
+        res.json({data: productosPorCategoria});
       } catch (err) {
         console.log(err);
         res.json({
-          data: {},
-          message: "[SERVER] Algo ha ido mal al filtrar productos",
+          msg: "Algo ha ocurrido mal",
         });
       }
 };
-
-//Buscar categoria por query
-
-
-//Buscar productos por categorias
-
-
-
-
 
 
 
