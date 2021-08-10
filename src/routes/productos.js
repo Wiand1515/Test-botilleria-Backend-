@@ -7,9 +7,6 @@ const router = express.Router();
 router.get('/', getProductos);
 
 
-router.get('/search', getProducto)
-
-
 
 
 

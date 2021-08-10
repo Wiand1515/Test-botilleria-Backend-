@@ -3,11 +3,7 @@ const { Op } = require("sequelize");
 const Categoria = require("../models/categoria");
 const Producto = require("../models/producto");
 
-
-
-
-
-
+//Obtener todos los productos
 const getProductos = async(req = request, res = response) => {
 
     try {
@@ -29,37 +25,6 @@ const getProductos = async(req = request, res = response) => {
 };
 
 
-const getProducto = async(req = request, res = response) => {
-    try {
-        const {name} = req.query;
-        console.log(req.query)
-
-        const producto = await Producto.findAll({
-            include: [{
-                model: Categoria,
-                as: "populateCategory"
-            }],            
-            where: {
-                name: {
-                    [Op.like]: `%${name}%`
-                }
-            }
-        });
-
-        res.json({
-            data: producto
-        })
-
-    } catch (error) {
-        res.json({
-            msg: 'No se puede procesar su solicitud'
-        })        
-    }
-};
-
-
-
 module.exports = {
     getProductos,
-    getProducto
 }

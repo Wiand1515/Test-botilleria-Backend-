@@ -58,9 +58,35 @@ const searchProductosQuery = async(req = request, res = respose) => {
         })        
     }
 };
+
 //Buscar categorias por parametro
+const searchCategory = async (req = request, res = response ) => {
+    const {name} = req.params;
+    console.log(req.params);
+    try {
+        const categoria = await Categoria.findAll({
+            where: {
+                name: {
+                    [Op.like]: `%${name}%`
+                }
+            }
+        })
+
+        res.json({
+            data: categoria
+        })
+
+
+    } catch (error) {
+        console.log(error);
+        res.json({
+            msg: 'No se puede procesar tu solicitud'
+        })
+    }
+};
 
 //Buscar categoria por query
+
 
 //Buscar productos por categorias
 
@@ -69,6 +95,8 @@ const searchProductosQuery = async(req = request, res = respose) => {
 
 
 
+
 module.exports = {
-    searchProductos
+    searchProductos,
+    searchCategory
 }
