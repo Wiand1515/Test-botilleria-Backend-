@@ -10,7 +10,7 @@ router.get('/productos/:name', searchProductos);
 //Buscar por query Categoria
 
 //Buscar por parametro Categoria
-router.get('/categorias/:name', searchCategory);
+router.get('/categorias/:id', searchCategory);
 
 //Buscar Productos por categoria
 

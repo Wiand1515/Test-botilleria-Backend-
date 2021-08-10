@@ -61,28 +61,29 @@ const searchProductosQuery = async(req = request, res = respose) => {
 
 //Buscar categorias por parametro
 const searchCategory = async (req = request, res = response ) => {
-    const {name} = req.params;
-    console.log(req.params);
     try {
-        const categoria = await Categoria.findAll({
-            where: {
-                name: {
-                    [Op.like]: `%${name}%`
-                }
-            }
-        })
-
+        const { id } = req.params;
+        const filteredProducts = await Categoria.findAll({
+          include: [
+            {
+              model: Producto,
+              as: "products",
+            },
+          ],
+          where: {
+            id: {
+              [Op.eq]: id,
+            },
+        }
+        });
+        res.json({data: filteredProducts});
+      } catch (err) {
+        console.log(err);
         res.json({
-            data: categoria
-        })
-
-
-    } catch (error) {
-        console.log(error);
-        res.json({
-            msg: 'No se puede procesar tu solicitud'
-        })
-    }
+          data: {},
+          message: "[SERVER] Algo ha ido mal al filtrar productos",
+        });
+      }
 };
 
 //Buscar categoria por query
