@@ -5,6 +5,7 @@
 3. [ ¿Como utilizar la aplicacion?. ](#usos)
 4. [ Front-end ](#front)
 5. [ Back-end](#back)
+6. [ Enlaces](#link)
 
 
 <a name="desc"></a>
@@ -55,6 +56,7 @@ Para utilizarla simplemente, escribe algo y si existe en nuestros registros lo e
 
 a traves de los filtros de categorias, podemos filtrar especificamente lo que estemos buscando y pertenezca a esta.
 
+<a name="front"></a>
 ## 4. Front
 
 Con respecto a la construccion del front, se utilizo html, css y bootstrap para generar las estructuras, estilos y comportamiento responsivo de la aplicacion. Ademas se trabajo con Vanilla Javascript para poder generar el dinamismo de la siguiente manera:
@@ -66,7 +68,7 @@ Funcionalidades hechas con javascript:
     - Se utiliza FETCH, para conectar la aplicacion con el backend.
     - Se renderizan elementos con la etiqueta template de html e iteraciones de la data resultante del fetch.
 
-
+<a name="back"></a>
 ## 5. Backend  
 
 Se crea una API Rest con la utilizacion de Nodejs y express, ademas se genera una conexion con base de datos Mysql.
@@ -87,6 +89,7 @@ Esta accion retornara todo lo presente con el nombre pisco disponible en los pro
 Ademas se utilizo Sequelize para poder conectar e interactuar con la base de datos, esto con el fin de simplificar el trabajo y hacer mas fluida la comunicacion.
 
 
+<a name="link"></a>
 ## 6. Enlaces
 
 Puedes ver una prueba en vivo y desplegada de esta aplicacion en el siguiente enlace:
